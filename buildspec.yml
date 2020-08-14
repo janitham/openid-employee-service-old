@@ -1,0 +1,25 @@
+version: 0.2
+
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URI=014650260613.dkr.ecr.ap-south-1.amazonaws.com/sympan
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Module ...
+      #- git fetch --all
+      - ./gradlew build candidate dockerPush helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD
+      - echo Building the Docker image...
+      #- ./gradlew dockerPush -i --stacktrace
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Deploying the Helm Chart...
+      #- ./gradlew helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI
+#artifacts:
+  #files: imagedefinitions.json

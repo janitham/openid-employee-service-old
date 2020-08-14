@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://schemas.cambio.se/platform/model/130605/jboss-module-mappings/" xmlns:ns2="urn:jboss:module:1.2" name="se.cambio.market.se.ix3.dos.dos-jboss-module">
+    <mapping>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="ConnectHSAServer" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="ConnectHSAXML" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="PrintInformationPluginServer" />
+        </selector>
+        <selector>
+            <groupId value="commons-codec" />
+            <artifactId value="commons-codec" />
+        </selector>
+        <selector>
+            <artifactId value="xmlsec" />
+        </selector>
+        <module name="se.cambio.spider.spider-modules-jboss-module" export="false" />
+    </mapping>
+    <mapping>
+        <selector>
+            <groupId value="org.apache.cxf" />
+        </selector>
+        <module name="org.apache.cxf" export="true" services="export" />
+    </mapping>
+    <mapping>
+        <selector>
+            <groupId value="com.sun.mail" />
+        </selector>
+        <module name="javax.mail.api" export="true" services="export" />
+    </mapping>
+    <mapping>
+        <selector>
+            <groupId value="commons-collections" />
+            <artifactId value="commons-collections" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-dto-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-dto-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-security-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-server-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-saml-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="ConnectHSAServer" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-security-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-saml-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-common-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.apache.velocity" />
+            <artifactId value="velocity" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-core" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="PrintInformationPluginServer" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-server-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-storage-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-ejb-common" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-xmlsec-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-service-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-contracts" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-service-spi" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-profile-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-soap-impl" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-service-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.cryptacular" />
+            <artifactId value="cryptacular" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.cosmic.market.se" />
+            <artifactId value="ConnectHSAXML" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-soap-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="se.cambio.market.se.ix3.dos" />
+            <artifactId value="dos-server-spi" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-xmlsec-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.apache.santuario" />
+            <artifactId value="xmlsec" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="commons-codec" />
+            <artifactId value="commons-codec" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="com.google.code.findbugs" />
+            <artifactId value="jsr305" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="org.opensaml" />
+            <artifactId value="opensaml-messaging-api" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="io.dropwizard.metrics" />
+            <artifactId value="metrics-core" />
+            <type value="jar" />
+        </selector>
+        <selector>
+            <groupId value="net.shibboleth.utilities" />
+            <artifactId value="java-support" />
+            <type value="jar" />
+        </selector>
+        <artifact>
+            <groupId>se.cambio.market.se.ix3.dos</groupId>
+            <artifactId>dos-jboss-module</artifactId>
+            <type>jme</type>
+        </artifact>
+        <module name="se.cambio.market.se.ix3.dos.dos-jboss-module" export="true" services="export" />
+    </mapping>
+    <module name="org.apache.cxf.impl" export="true" services="export" />
+    <module name="sun.jdk" />
+    <module name="org.slf4j" export="true" services="export" />
+    <module name="org.apache.commons.logging" export="true" services="export" />
+    <module name="se.cambio.cosmic.ix3.medication.medication-jboss-module" export="true" services="export" />
+    <module name="se.cambio.spider.spider-jboss-module" export="true" services="export" />
+    <module name="com.google.guava" export="true" />
+    <artifact>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-dto-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-dto-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-security-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-server-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-saml-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.cosmic.market.se</groupId>
+        <artifactId>ConnectHSAServer</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-security-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-saml-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-common-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-core</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.cosmic.market.se</groupId>
+        <artifactId>PrintInformationPluginServer</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-server-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-storage-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-ejb-common</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-xmlsec-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-service-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-contracts</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-service-spi</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-profile-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-soap-impl</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-service-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.cryptacular</groupId>
+        <artifactId>cryptacular</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.cosmic.market.se</groupId>
+        <artifactId>ConnectHSAXML</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-soap-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>se.cambio.market.se.ix3.dos</groupId>
+        <artifactId>dos-server-spi</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-xmlsec-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.apache.santuario</groupId>
+        <artifactId>xmlsec</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>org.opensaml</groupId>
+        <artifactId>opensaml-messaging-api</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-core</artifactId>
+        <type>jar</type>
+    </artifact>
+    <artifact>
+        <groupId>net.shibboleth.utilities</groupId>
+        <artifactId>java-support</artifactId>
+        <type>jar</type>
+    </artifact>
+</module>
