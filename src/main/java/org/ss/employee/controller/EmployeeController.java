@@ -25,7 +25,7 @@ public class EmployeeController {
     @RolesAllowed("user")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<String> getDepartmentForUser(@RequestHeader String Authorization) {
-        final ResponseEntity<String> str = restTemplate.getForEntity("http://localhost:8002/department/user", String.class);
+        final ResponseEntity<String> str = restTemplate.getForEntity("http://localhost:8082/department/user", String.class);
         return ResponseEntity.ok(str.getBody());
     }
 
