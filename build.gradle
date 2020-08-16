@@ -30,11 +30,17 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    swaggerSpec
+}
+
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1"
     }
 }
+
+def departmentClientVersion = '0.1.0-dev.2.uncommitted+cf332e3'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -53,6 +59,8 @@ dependencies {
     implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.2.6.RELEASE'
 
     compile "com.github.joschi.jackson:jackson-datatype-threetenbp:2.6.4"
+
+    swaggerSpec(group: 'org.ss.department', name: 'openid-department-service', ext: 'json', classifier: 'openapi', version: departmentClientVersion)
 }
 
 group = 'org.ss.department'
@@ -110,7 +118,7 @@ def employeeApiDir = "$buildDir/generated/employee-api-client"
 task employeeClientGen(type: Exec) {
     executable "java"
     args "-jar", "./swagger-codegen-cli.jar", "generate",
-            "-i", "openapi.json",
+            "-i", "$buildDir/libs/openid-department-service-openapi.json",
             "--api-package", "org.ss.department.api",
             "--model-package", "org.ss.department.model",
             "--invoker-package", "org.ss.department.invoker",
@@ -129,4 +137,13 @@ sourceSets {
     }
 }
 
-compileJava.dependsOn(employeeClientGen);
+task copyOpenApiSpec(type: Copy) {
+    from configurations.swaggerSpec
+    into "$buildDir/libs"
+    rename { String fileName ->
+        fileName.replace(departmentClientVersion + "-", "")
+    }
+}
+
+employeeClientGen.dependsOn(copyOpenApiSpec)
+compileJava.dependsOn(employeeClientGen)
