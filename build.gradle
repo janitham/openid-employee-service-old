@@ -51,6 +51,8 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui")
 
     implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.2.6.RELEASE'
+
+    compile "com.github.joschi.jackson:jackson-datatype-threetenbp:2.6.4"
 }
 
 group = 'org.ss.department'
@@ -91,14 +93,40 @@ task dockerPush(type: Exec) {
     args "push", "${docker_registry}:${version}"
 }
 
-task helmDeploy(type: Exec){
-    commandLine  "./helm", "--kubeconfig=kubeconfig.yaml", "upgrade", "spring-boot-app","./chart","--set", "image.repository=${docker_registry}", "--set", "image.tag=${version}", "--set", "timestamp=${getTimeNow()}"
+task helmDeploy(type: Exec) {
+    commandLine "./helm", "--kubeconfig=kubeconfig.yaml", "upgrade", "spring-boot-app", "./chart", "--set", "image.repository=${docker_registry}", "--set", "image.tag=${version}", "--set", "timestamp=${getTimeNow()}"
 }
 
 dockerPush.dependsOn(dockerBuild)
 copyJar.dependsOn(build)
 dockerBuild.dependsOn(copyJar)
 
-def getTimeNow(){
+def getTimeNow() {
     LocalDateTime.now().toString()
 }
+
+def employeeApiDir = "$buildDir/generated/employee-api-client"
+
+task employeeClientGen(type: Exec) {
+    executable "java"
+    args "-jar", "./swagger-codegen-cli.jar", "generate",
+            "-i", "openapi.json",
+            "--api-package", "org.ss.department.api",
+            "--model-package", "org.ss.department.model",
+            "--invoker-package", "org.ss.department.invoker",
+            "-l", "java", "--library", "resttemplate",
+            "-o", "${employeeApiDir}"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    'src/main/java',
+                    "${employeeApiDir}/src/main/java"
+            ]
+        }
+    }
+}
+
+compileJava.dependsOn(employeeClientGen);

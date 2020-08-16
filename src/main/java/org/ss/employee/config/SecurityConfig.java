@@ -7,6 +7,7 @@ import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -18,6 +19,9 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
+import org.springframework.web.client.RestTemplate;
+import org.ss.department.api.DepartmentControllerApi;
+import org.ss.department.invoker.ApiClient;
 
 @Configuration
 @EnableWebSecurity
@@ -66,5 +70,17 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
             oAuth2RestTemplate.getAccessToken();
             return oAuth2RestTemplate;
         }
+    }
+
+    @Bean
+    public ApiClient configureApiClient(final RestTemplate restTemplate){
+        final ApiClient apiClient = new ApiClient(restTemplate);
+        apiClient.setBasePath("http://localhost:8082");
+        return  apiClient;
+    }
+
+    @Bean
+    public DepartmentControllerApi configureDepartmentControllerApi(final ApiClient apiClient){
+        return new DepartmentControllerApi(apiClient);
     }
 }

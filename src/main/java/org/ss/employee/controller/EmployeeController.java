@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.ss.department.api.DepartmentControllerApi;
 
 import javax.annotation.security.RolesAllowed;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-    @Autowired
-    private RestTemplate restTemplate;
 
+    @Autowired
+    private DepartmentControllerApi departmentControllerApi;
 
     @RequestMapping(value = "/anonymous", method = RequestMethod.GET)
     public ResponseEntity<String> getEmployeeForAnonymous() {
@@ -25,8 +25,8 @@ public class EmployeeController {
     @RolesAllowed("user")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<String> getDepartmentForUser(@RequestHeader String Authorization) {
-        final ResponseEntity<String> str = restTemplate.getForEntity("http://localhost:8082/department/user", String.class);
-        return ResponseEntity.ok(str.getBody());
+        final String output = departmentControllerApi.getUserDepartment(null);
+        return ResponseEntity.ok(output + " new");
     }
 
     @RolesAllowed("admin")

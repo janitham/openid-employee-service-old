@@ -33,3 +33,5 @@ build/
 .gradle
 
 sh.exe.*
+
+out
