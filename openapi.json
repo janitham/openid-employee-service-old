@@ -8,6 +8,26 @@
   ],
   "openapi": "3.0.1",
   "paths": {
+    "/department/anonymous": {
+      "get": {
+        "operationId": "getAnonymous",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "department-controller"
+        ]
+      }
+    },
     "/department/admin": {
       "get": {
         "operationId": "getAdminDepartment",
@@ -33,26 +53,6 @@
             "required": false
           }
         ],
-        "tags": [
-          "department-controller"
-        ]
-      }
-    },
-    "/department/": {
-      "get": {
-        "operationId": "getDepartment",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
         "tags": [
           "department-controller"
         ]

@@ -75,7 +75,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     @Bean
     public ApiClient configureApiClient(final RestTemplate restTemplate){
         final ApiClient apiClient = new ApiClient(restTemplate);
-        apiClient.setBasePath("http://localhost:8082");
+        apiClient.setBasePath("http://localhost:8080");
         return  apiClient;
     }
 
