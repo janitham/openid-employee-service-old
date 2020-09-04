@@ -7,7 +7,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=014650260613.dkr.ecr.ap-south-1.amazonaws.com/sympan
+      - REPOSITORY_URI=014650260613.dkr.ecr.ap-south-1.amazonaws.com/openid-employee-service
   build:
     commands:
       - echo Build started on `date`
