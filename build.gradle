@@ -9,6 +9,8 @@ buildscript {
         classpath "com.netflix.nebula:nebula-publishing-plugin:7.1.0"
     }
     repositories {
+        jcenter()
+        mavenCentral()
         maven {
             url "s3://${repoBucketName}/releases"
             authentication {
