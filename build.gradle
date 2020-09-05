@@ -25,23 +25,6 @@ apply plugin: "nebula.maven-publish"
 apply plugin: "nebula.javadoc-jar"
 apply plugin: "nebula.source-jar"
 
-/*repositories {
-    mavenLocal()
-    jcenter()
-    mavenCentral()
-}*/
-repositories {
-    mavenLocal()
-    jcenter()
-    mavenCentral()
-    maven {
-        url "s3://${repoBucketName}/releases"
-        authentication {
-            awsIm(AwsImAuthentication)
-        }
-    }
-}
-
 configurations {
     swaggerSpec
 }
@@ -57,7 +40,7 @@ dependencyManagement {
     }
 }
 
-def departmentClientVersion = '0.1.0-dev.2.uncommitted+cf332e3'
+def departmentClientVersion = '0.1.0-rc.34'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -81,21 +64,12 @@ dependencies {
 }
 
 group = 'org.ss.department'
-//version = '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 publishing {
     publications {
         maven(MavenPublication) {
             from(components.java)
-        }
-    }
-    repositories {
-        maven {
-            url "s3://${repoBucketName}/releases"
-            authentication {
-                awsIm(AwsImAuthentication)
-            }
         }
     }
 }

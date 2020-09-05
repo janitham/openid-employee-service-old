@@ -1,0 +1,29 @@
+apply plugin: EnterpriseRepositoryPlugin
+
+class EnterpriseRepositoryPlugin implements Plugin<Gradle> {
+
+    void apply(Gradle gradle) {
+        gradle.settingsEvaluated { settings ->
+            settings.pluginManagement {
+                repositories {
+                    maven { url "https://plugins.gradle.org/m2/" }
+                    jcenter()
+                    mavenCentral()
+                }
+            }
+            gradle.allprojects { project ->
+                project.repositories {
+                    mavenLocal()
+                    jcenter()
+                    mavenCentral()
+                    maven {
+                        url "s3://sympan-mvn-repo/releases"
+                        authentication {
+                            awsIm(AwsImAuthentication)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
