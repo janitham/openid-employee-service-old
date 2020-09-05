@@ -17,7 +17,7 @@ class EnterpriseRepositoryPlugin implements Plugin<Gradle> {
                     jcenter()
                     mavenCentral()
                     maven {
-                        url "s3://sympan-mvn-repo/releases"
+                        url "s3://${repoBucketName}/releases"
                         authentication {
                             awsIm(AwsImAuthentication)
                         }
