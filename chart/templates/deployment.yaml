@@ -27,10 +27,15 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.secret }}"
+            - secretRef:
+                name: "{{ .Values.config }}"
+            ports:
+              - name: http
+                containerPort: {{ .Values.port }}
+                protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
 

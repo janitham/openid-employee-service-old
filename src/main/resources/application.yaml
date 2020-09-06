@@ -1,0 +1,21 @@
+server:
+  port                       : ${SEVER_PORT}
+
+keycloak:
+  use-resource-role-mappings : true
+  bearer-only                : true
+  realm                      : ${REALM}
+  auth-server-url            : ${AUTH_SERVER}
+  resource                   : ${AUTH_RESOURCE}
+  credentials:
+    secret                   : ${AUTH_SECRET}
+
+security:
+  oauth2:
+    client:
+      client-id             : ${keycloak.resource}
+      client-secret         : ${keycloak.credentials.secret}
+      user-authorization-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/auth
+      access-token-uri      : ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/token
+      scope                 : openid
+      grant-type            : client_credentials
