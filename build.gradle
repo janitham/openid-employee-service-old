@@ -109,7 +109,8 @@ task helmDeploy(type: Exec) {
             "./chart",
             "--set", "image.repository=${docker_registry}",
             "--set", "image.tag=${version}",
-            "--set", "timestamp=${getTimeNow()}"
+            "--set", "timestamp=${getTimeNow()}",
+            "--set", "namespace=${namespace}"
 }
 
 dockerPush.dependsOn(dockerBuild)
