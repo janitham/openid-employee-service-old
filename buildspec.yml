@@ -12,7 +12,14 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Module ...
-      - ./gradlew build candidate build dockerPush helmDeploy -i --stacktrace -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD  -Pnamespace=$NAMESPACE -I init.gradle
+      - |
+        ./gradlew build candidate build dockerPush helmDeploy \
+        -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER \
+        -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD  \
+        -Pnamespace=$NAMESPACE \
+        -Psecret=$SECRET_NAME \
+        -Pconfig=$CONFIG_NAME \
+        -I init.gradle -i --stacktrace
       - echo Building the Docker image...
   post_build:
     commands:
