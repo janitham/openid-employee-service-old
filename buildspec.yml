@@ -14,8 +14,9 @@ phases:
       - echo Building the Module ...
       - |
         ./gradlew build candidate build dockerPush helmDeploy \
-        -Pdocker_registry=$REPOSITORY_URI -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER \
+        -Dorg.ajoberstar.grgit.auth.username=$GITHUB_USER \
         -Dorg.ajoberstar.grgit.auth.password=$GITHUB_PASSWORD  \
+        -Pdocker_registry=$REPOSITORY_URI \
         -Pnamespace=$NAMESPACE \
         -Psecret=$SECRET_NAME \
         -Pconfig=$CONFIG_NAME \
