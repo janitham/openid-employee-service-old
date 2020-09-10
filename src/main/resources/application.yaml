@@ -19,3 +19,7 @@ security:
       access-token-uri      : ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/token
       scope                 : openid
       grant-type            : client_credentials
+
+services:
+  department:
+    url: ${DEPARTMENT_URL}
